@@ -8,7 +8,6 @@ const {
   toNumericRange,
   toDateRange
 } = require("./types");
-const { inspect } = require("util");
 
 class SchemaEntryError extends Error {}
 
@@ -68,7 +67,7 @@ class SchemaEntry {
       foundValue = this.types[type](this.obj);
       return foundValue;
     });
-    return foundValue || this.defaultTypeHandler(config);
+    return foundValue || this.defaultTypeHandler(this.config);
   }
 
   get obj() {

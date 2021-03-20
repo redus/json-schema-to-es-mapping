@@ -1,4 +1,4 @@
-const { isFunction } = require("util");
+const { isFunction } = require("./util");
 const { InfoHandler } = require("./info");
 const { $default } = require("./default");
 const { createDefinitionRefResolver } = require("./definition");
@@ -57,10 +57,6 @@ class MappingBaseType extends InfoHandler {
     return "_";
   }
 
-  setResultObj(result) {
-    this.result[this.key] = result;
-  }
-
   resultKey() {
     return this.nested ? this.nestedKey(this) : this.key;
   }
@@ -98,6 +94,7 @@ class MappingBaseType extends InfoHandler {
 
   get baseType() {
     this.error("default mapping type must be specified by subclass");
+    return null;
   }
 
   get fields() {
@@ -185,7 +182,7 @@ class MappingBaseType extends InfoHandler {
   }
 
   message() {
-    return config.messages[this.key] || config.messages[this.type] || {};
+    return this.config.messages[this.key] || this.config.messages[this.type] || {};
   }
 }
 

@@ -21,7 +21,7 @@ class MappingArray extends MappingBaseType {
     const result = this.createResult();
     if (this.isReference) {
       delete result.type
-    };
+    }
     return result;
   }
 

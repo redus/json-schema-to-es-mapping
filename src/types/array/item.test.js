@@ -9,9 +9,6 @@ describe("MappingItem", () => {
   const intItem = {
     type: "integer"
   };
-  const config = {};
-
-  describe.skip("create", () => {});
 
   describe("resolver", () => {
     describe("no resolver in config", () => {

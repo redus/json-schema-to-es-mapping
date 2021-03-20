@@ -1,4 +1,4 @@
-const { build } = require("../");
+const { build } = require("../src");
 
 describe("build", () => {
   test("nested object", () => {

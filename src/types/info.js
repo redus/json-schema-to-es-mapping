@@ -1,3 +1,5 @@
+const { isFunction } = require("./util");
+
 class InfoHandler {
   contructor(config = {}) {
     this.config = config || this.config;
@@ -10,7 +12,7 @@ class InfoHandler {
   error(name, msg, data) {
     const errMsg = `[${name}] ${msg}`;
     this.onError(errMsg, data);
-    throw new ConvertMappingSchemaError(errMsg);
+    throw new Error(errMsg);
   }
 
   onError(errMsg, data) {
